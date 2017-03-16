@@ -8,4 +8,8 @@ class Set{
     fun size(): Int{
         return 0
     }
+
+    fun add(element: Any) : Unit {
+    }
+
 }
