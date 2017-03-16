@@ -31,4 +31,13 @@ class SetSpec extends Specification{
             set.size() == 0
     }
 
+    def "after adding one element size is 1"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "adding one element"
+            set.add("one")
+        then: "the set size must be 1"
+            set.size() == 1
+    }
+
 }
