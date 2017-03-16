@@ -72,5 +72,15 @@ class SetSpec extends Specification{
             !set.contains("two")
     }
 
+    def "set doesn't contain element two if element two hasn't been added"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "added element two"
+            set.add("two")
+        then: "it doesn't contain the element one"
+            !set.contains("one")
+    }
+
+
 
 }
