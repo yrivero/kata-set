@@ -4,6 +4,8 @@ class Set{
 
     private var size : Int = 0
 
+    private var elements : Array<Any?> = arrayOfNulls(100)
+
     fun isEmpty():Boolean{
         return size == 0
     }
@@ -13,10 +15,11 @@ class Set{
     }
 
     fun add(element: Any) : Unit {
+        elements[size] = element
         size++
     }
 
     fun contains(element: Any) : Boolean {
-       return !isEmpty()
+        return elements.contains(element)
     }
 }
