@@ -17,6 +17,6 @@ class Set{
     }
 
     fun contains(element: Any) : Boolean {
-       return true
+       return !isEmpty()
     }
 }
