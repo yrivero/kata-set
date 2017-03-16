@@ -5,7 +5,7 @@ class Set{
     private var size : Int = 0
 
     fun isEmpty():Boolean{
-        return true
+        return size == 0
     }
 
     fun size(): Int{
