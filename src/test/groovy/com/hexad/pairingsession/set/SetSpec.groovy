@@ -2,6 +2,9 @@ package com.hexad.pairingsession.set
 
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Unroll
+
+import java.util.stream.IntStream
 
 /**
  * Created by Hexad GmbH on 16/03/2017.
@@ -38,6 +41,19 @@ class SetSpec extends Specification{
             set.add("one")
         then: "the set size must be 1"
             set.size() == 1
+    }
+
+
+    @Unroll("input: #n")
+    def "after adding n elements size is n"(){
+        given: "new set"
+            set = new Set()
+        when: "adding n elements"
+            for(count in 1..n) set.add("item " + count)
+        then: "the set size must be n"
+            set.size() == n
+        where:
+            n << IntStream.range(1,99)
     }
 
 }
