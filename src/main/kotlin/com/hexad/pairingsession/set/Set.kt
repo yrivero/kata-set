@@ -16,4 +16,7 @@ class Set{
         size++
     }
 
+    fun contains(element: Any) : Boolean {
+       return true
+    }
 }
