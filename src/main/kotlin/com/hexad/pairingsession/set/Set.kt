@@ -6,6 +6,6 @@ class Set{
     }
 
     fun size(): Int{
-        return -1
+        return 0
     }
 }
