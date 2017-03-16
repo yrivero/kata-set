@@ -65,5 +65,12 @@ class SetSpec extends Specification{
             set.contains("one")
     }
 
+    def "set doesn't contains any element when new"(){
+        given: "newly created instance"
+            def set = new Set()
+        expect: "it doesn't contains something"
+            !set.contains("two")
+    }
+
 
 }
