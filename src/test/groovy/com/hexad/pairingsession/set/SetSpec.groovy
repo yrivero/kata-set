@@ -56,4 +56,14 @@ class SetSpec extends Specification{
             n << IntStream.range(1,99)
     }
 
+    def "set contains the added element"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "adding one element"
+            set.add("one")
+        then: "the set size must contains one"
+            set.contains("one")
+    }
+
+
 }
