@@ -24,4 +24,11 @@ class SetSpec extends Specification{
             set.isEmpty()
     }
 
+    def "new set must have size 0 initially"(){
+        when: "create new instance"
+            def set = new Set()
+        then: "the new instance must have size 0"
+            set.size() == 0
+    }
+
 }
