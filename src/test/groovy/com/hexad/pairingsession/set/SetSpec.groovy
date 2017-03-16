@@ -11,7 +11,6 @@ class SetSpec extends Specification{
     @Subject def Set
 
     def "be able to create new set instance"(){
-        given: "nothing"
         when: "create new instance with default constructor"
             def set = new Set()
         then: "an instance is created"
