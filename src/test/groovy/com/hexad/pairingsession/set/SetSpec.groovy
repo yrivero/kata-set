@@ -18,5 +18,11 @@ class SetSpec extends Specification{
             set != null
     }
 
-    
+    def "new set must be empty"(){
+        when: "create new instance"
+            def set = new Set()
+        then: "the new instance must be empty"
+            set.isEmpty()
+    }
+
 }
