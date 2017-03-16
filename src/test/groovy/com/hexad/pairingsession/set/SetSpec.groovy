@@ -17,4 +17,6 @@ class SetSpec extends Specification{
         then: "an instance is created"
             set != null
     }
+
+    
 }
