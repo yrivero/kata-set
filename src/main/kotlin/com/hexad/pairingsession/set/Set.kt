@@ -22,4 +22,20 @@ class Set{
     fun contains(element: Any) : Boolean {
         return elements.contains(element)
     }
+
+    fun remove(element: Any?) {
+        for (index: Int in 0..(size-1)) {
+            if
+                (
+                    (element==null && elements[index]==null)
+                    ||
+                    (element!=null && elements[index]!=null && elements[index]!!.equals(element))
+                )
+            {
+                elements[index] = elements[size-1]
+                size--
+            }
+        }
+
+    }
 }
