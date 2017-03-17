@@ -91,6 +91,15 @@ class SetSpec extends Specification{
             set.contains("one")
     }
 
+    def "when calling remove the element is removed from the set"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "added the element one and remove it"
+            set.add("one")
+            set.remove("one")
+        then: "the set must be empty"
+            set.isEmpty()
+    }
 
 
 }
