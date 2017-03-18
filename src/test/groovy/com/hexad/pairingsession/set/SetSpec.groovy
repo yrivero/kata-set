@@ -140,10 +140,22 @@ class SetSpec extends Specification{
             set.size == 1
     }
 
+    def "contains method finds only elements we already added before"(){
+        given: "newly created instance with the elements one and two"
+            def set = new Set()
+            set.add("one")
+            set.add("two")
+        when: "we check if the set contains an element we haven't added"
+            def result = set.contains(null)
+        then: "the result is false"
+            result == false
+    }
+
     /*
         pending tests
             implement clear operation
             auto grow feature
+            remove method bug: its removing elements out of the range
 
      */
 
