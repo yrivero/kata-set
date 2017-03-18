@@ -119,4 +119,24 @@ class SetSpec extends Specification{
             set.contains(null)
     }
 
+    def "the remove operation accepts null elements"(){
+        given: "newly created instance containing a null element"
+            def set = new Set()
+            set.add(null)
+        when: "removing a null element"
+            set.remove(null)
+        then: "the remove operation doesn't fail"
+            set.isEmpty()
+    }
+
+
+    /*
+        pending tests
+            remove can remove nulls
+            add doesn't insert duplicate elements
+            implement clear operation
+            auto grow feature
+
+     */
+
 }
