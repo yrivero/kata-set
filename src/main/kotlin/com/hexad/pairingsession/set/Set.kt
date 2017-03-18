@@ -24,12 +24,11 @@ class Set{
     }
 
     fun remove(element: Any?) {
-        for (index: Int in 0..(size-1)) {
-            if (elementsAreEqual(element, elements[index]))
-            {
-                elements[index] = elements[size-1]
-                size--
-            }
+        var index = elements.indexOf(element)
+
+        if(index != -1){
+            elements[index] = elements[size-1]
+            size--
         }
     }
 
