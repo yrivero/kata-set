@@ -2,22 +2,32 @@ package com.hexad.pairingsession.set
 
 class Set {
 
+    private val ELEMENT_NOT_FOUND = -1
+
+    private val DEFAULT_INITIAL_CAPACITY : Int = 100
+
     private var size : Int = 0
 
     private var elements : Array<Any?> = arrayOfNulls(0)
 
-    private val initialCapacity : Int = 100
+    private var initialCapacity : Int = -1
 
     constructor(initialCapacity:Int) {
         _init(initialCapacity)
     }
 
     constructor() {
-        _init(initialCapacity)
+        _init(DEFAULT_INITIAL_CAPACITY)
     }
 
     fun _init(initialCapacity: Int) {
+        this.initialCapacity = initialCapacity
+        resetElementsArray()
+    }
+
+    private fun resetElementsArray() {
         elements = arrayOfNulls(initialCapacity)
+        size = 0
     }
 
 
@@ -46,20 +56,20 @@ class Set {
     fun contains(element: Any?) : Boolean {
         var index = indexOf(element)
 
-        return (index != -1)
+        return (index != ELEMENT_NOT_FOUND)
     }
 
     fun remove(element: Any?) {
         var index = indexOf(element)
 
-        if(index != -1){
+        if(index != ELEMENT_NOT_FOUND){
             elements[index] = elements[size-1]
             size--
         }
     }
 
     fun clear() {
-
+        resetElementsArray()
     }
 
     private fun indexOf(element: Any?): Int {
@@ -69,7 +79,7 @@ class Set {
             }
         }
 
-        return -1
+        return ELEMENT_NOT_FOUND
     }
 
     private fun elementsAreEqual(element1: Any?, element2: Any?): Boolean {
