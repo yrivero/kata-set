@@ -19,7 +19,7 @@ class Set{
         size++
     }
 
-    fun contains(element: Any) : Boolean {
+    fun contains(element: Any?) : Boolean {
         return elements.contains(element)
     }
 
