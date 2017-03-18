@@ -22,29 +22,28 @@ class Set{
     }
 
     fun contains(element: Any?) : Boolean {
-        for (index: Int in 0..(size-1)) {
-            if(elementsAreEqual(element, elements[index])){
-                return true
-            }
-        }
+        var index = indexOf(element)
 
-        return false
+        return (index != -1)
     }
 
     fun remove(element: Any?) {
-        var index = -1
-
-        for (currentIndex: Int in 0..(size-1)) {
-            if(elementsAreEqual(element, elements[currentIndex])){
-                index = currentIndex
-                break
-            }
-        }
+        var index = indexOf(element)
 
         if(index != -1){
             elements[index] = elements[size-1]
             size--
         }
+    }
+
+    private fun indexOf(element: Any?): Int {
+        for (currentIndex: Int in 0..(size - 1)) {
+            if (elementsAreEqual(element, elements[currentIndex])) {
+                return currentIndex
+            }
+        }
+
+        return -1
     }
 
     private fun elementsAreEqual(element1: Any?, element2: Any?): Boolean {
