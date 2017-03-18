@@ -25,17 +25,23 @@ class Set{
 
     fun remove(element: Any?) {
         for (index: Int in 0..(size-1)) {
-            if
-                (
-                    (element==null && elements[index]==null)
-                    ||
-                    (element!=null && elements[index]!=null && elements[index]!!.equals(element))
-                )
+            if (elementsAreEqual(element, elements[index]))
             {
                 elements[index] = elements[size-1]
                 size--
             }
         }
-
     }
+
+    private fun elementsAreEqual(element1: Any?, element2: Any?): Boolean {
+        return  (element1 == null && element2 == null)
+                ||
+                (
+                        element1 != null
+                        && element2 != null
+                        && element2 == element1
+                )
+    }
+
+
 }
