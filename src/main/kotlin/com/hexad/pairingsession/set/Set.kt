@@ -32,11 +32,15 @@ class Set {
     fun add(element: Any?) : Unit {
         if (!contains(element)) {
             if(size == elements.size){
-                elements = elements.copyOf(elements.size + initialCapacity)
+                resizeArray()
             }
             elements[size] = element
             size++
         }
+    }
+
+    private fun resizeArray() {
+        elements = elements.copyOf(elements.size + initialCapacity)
     }
 
     fun contains(element: Any?) : Boolean {
