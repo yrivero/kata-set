@@ -58,6 +58,10 @@ class Set {
         }
     }
 
+    fun clear() {
+
+    }
+
     private fun indexOf(element: Any?): Int {
         for (currentIndex: Int in 0..(size - 1)) {
             if (elementsAreEqual(element, elements[currentIndex])) {
