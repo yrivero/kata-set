@@ -151,6 +151,22 @@ class SetSpec extends Specification{
             result == false
     }
 
+    def "the remove method has to work with elements already present in the set"(){
+        given: "a newly created instance with the elements one, two and three, and having removed the element three"
+            def set = new Set()
+            set.add("one")
+            set.add("two")
+            set.add("three")
+            set.remove("three")
+        when: "the remove method is called to remove again the element three"
+            set.remove("three")
+        then: "the remove method doesn't change the set"
+            set.size == 2
+            set.contains("one")
+            set.contains("two")
+            !set.contains("three")
+    }
+
     /*
         pending tests
             implement clear operation
