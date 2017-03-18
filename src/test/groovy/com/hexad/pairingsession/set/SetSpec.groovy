@@ -129,11 +129,19 @@ class SetSpec extends Specification{
             set.isEmpty()
     }
 
+    def "the add method doesn't add duplicated elements"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "adding the element one twice"
+            set.add("one")
+            set.add("one")
+        then: "the set only contains the one element once"
+            set.contains("one")
+            set.size == 1
+    }
 
     /*
         pending tests
-            remove can remove nulls
-            add doesn't insert duplicate elements
             implement clear operation
             auto grow feature
 
