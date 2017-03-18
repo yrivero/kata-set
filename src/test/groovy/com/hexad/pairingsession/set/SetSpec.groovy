@@ -110,4 +110,13 @@ class SetSpec extends Specification{
             true
     }
 
+    def "the set can contain null elements"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "added a null element"
+            set.add(null)
+        then: "the contains operation doesn't fail"
+            set.contains(null)
+    }
+
 }
