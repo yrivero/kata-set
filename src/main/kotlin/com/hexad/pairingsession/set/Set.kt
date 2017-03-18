@@ -6,12 +6,14 @@ class Set {
 
     private var elements : Array<Any?> = arrayOfNulls(0)
 
+    private val initialCapacity : Int = 100
+
     constructor(initialCapacity:Int) {
         _init(initialCapacity)
     }
 
     constructor() {
-        _init(100)
+        _init(initialCapacity)
     }
 
     fun _init(initialCapacity: Int) {
@@ -29,6 +31,9 @@ class Set {
 
     fun add(element: Any?) : Unit {
         if (!contains(element)) {
+            if(size == elements.size){
+                elements = elements.copyOf(elements.size + initialCapacity)
+            }
             elements[size] = element
             size++
         }
