@@ -14,7 +14,7 @@ class Set{
         return size
     }
 
-    fun add(element: Any) : Unit {
+    fun add(element: Any?) : Unit {
         elements[size] = element
         size++
     }
