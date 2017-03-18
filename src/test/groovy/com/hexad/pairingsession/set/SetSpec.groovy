@@ -101,5 +101,13 @@ class SetSpec extends Specification{
             set.isEmpty()
     }
 
+    def "null elements can be added to the set"(){
+        given: "newly created instance"
+            def set = new Set()
+        when: "added a null element"
+            set.add(null)
+        then: "the add operation doesn't fail"
+            true
+    }
 
 }
