@@ -15,12 +15,20 @@ class Set{
     }
 
     fun add(element: Any?) : Unit {
-        elements[size] = element
-        size++
+        if (!contains(element)) {
+            elements[size] = element
+            size++
+        }
     }
 
     fun contains(element: Any?) : Boolean {
-        return elements.contains(element)
+        for (index: Int in 0..(size-1)) {
+            if(elementsAreEqual(element, elements[index])){
+                return true
+            }
+        }
+
+        return false
     }
 
     fun remove(element: Any?) {
