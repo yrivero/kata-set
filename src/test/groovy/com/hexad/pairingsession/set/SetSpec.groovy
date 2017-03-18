@@ -167,13 +167,6 @@ class SetSpec extends Specification{
             !set.contains("three")
     }
 
-    /*
-        pending tests
-            implement clear operation
-            auto grow feature
-     */
-
-
     def "set capacity grows beyond the initial size"(){
         given: "a set filled to its maximum capacity"
             def set = new Set(1)
@@ -183,4 +176,16 @@ class SetSpec extends Specification{
         then: "the capacity of the set grows automatically"
             set.size() == 2
     }
+
+    def "after the clear method is called the set must be empty"(){
+        given: "a set containing two elements"
+            def set = new Set()
+            set.add("one")
+            set.add("two")
+        when: "the clear method is executed"
+            set.clear()
+        then: "the set must be empty"
+            set.isEmpty()
+    }
+
 }
