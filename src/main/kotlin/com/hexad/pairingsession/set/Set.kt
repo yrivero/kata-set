@@ -1,10 +1,23 @@
 package com.hexad.pairingsession.set
 
-class Set{
+class Set {
 
     private var size : Int = 0
 
-    private var elements : Array<Any?> = arrayOfNulls(100)
+    private var elements : Array<Any?> = arrayOfNulls(0)
+
+    constructor(initialCapacity:Int) {
+        _init(initialCapacity)
+    }
+
+    constructor() {
+        _init(100)
+    }
+
+    fun _init(initialCapacity: Int) {
+        elements = arrayOfNulls(initialCapacity)
+    }
+
 
     fun isEmpty():Boolean{
         return size == 0

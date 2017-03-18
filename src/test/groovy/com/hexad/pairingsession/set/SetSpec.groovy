@@ -161,7 +161,7 @@ class SetSpec extends Specification{
         when: "the remove method is called to remove again the element three"
             set.remove("three")
         then: "the remove method doesn't change the set"
-            set.size == 2
+            set.size() == 2
             set.contains("one")
             set.contains("two")
             !set.contains("three")
@@ -171,8 +171,16 @@ class SetSpec extends Specification{
         pending tests
             implement clear operation
             auto grow feature
-            remove method bug: its removing elements out of the range
-
      */
 
+
+    def "set capacity grows beyond the initial size"(){
+        given: "a set filled to its maximum capacity"
+            def set = new Set(1)
+            set.add("one")
+        when: "adding new elements"
+            set.add("two")
+        then: "the capacity of the set grows automatically"
+            set.size() == 2
+    }
 }
